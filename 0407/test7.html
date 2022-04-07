@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test7.html</title>
+    <script>
+        // mutable : 값에 따라 타입이 달라진다
+        var atom = 100;
+        console.log("atom : " + atom);
+        console.log("atom(type) : " + typeof(atom));
+        
+        atom = 'seoul';
+        console.log("atom : " + atom);
+        console.log("atom(type) : " + typeof(atom));
+
+        // alert
+        function msg() {
+            alert("안녕하세요!!!" + atom);
+        }
+        function msg2(mbc) {
+            alert("반갑습니다." + mbc);
+            console.log("mbc : " + mbc);
+        }
+        function msg3() {
+            var ans = confirm("작업을 계속할까요?");
+            if(ans) {
+                alert("작업을 계속 진행합니다.")
+            }
+            else {
+                alert("작업을 마칩니다..")
+            }
+        }
+        function msg4() {
+            var su = prompt("수를 입력하세요?");
+            alert("입력한 수는? " + su);
+        }
+        function msg5(age) {
+            var nai = prompt("나이를 입력하세요?", age);
+            alert("입력한 나이는? " + nai);
+        }
+
+    </script>
+</head>
+<body>
+    <h2>mutable / immutable</h2>
+    <p>mutable Data Type : 변수가 값에 따라 변경된다.</p>
+    <p>immutable : 한번 선언한 변수는 타입(값)변경불가.</p>
+    --------에러 잡기 위한 방법2
+    <p><input type="button" value="메세지" onclick="msg()"/></p> 
+    <p><input type="button" value="메세지2" onclick="msg2(100)"/></p> 
+    <p><input type="button" value="메세지3" onclick="msg3()"/></p> 
+    <p><input type="button" value="메세지4" onclick="msg4()"/></p> 
+    <p><input type="button" value="메세지5" onclick="msg5(20)"/></p> 
+
+</body>
+</html>
