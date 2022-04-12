@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test12.html(부모창)</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        //'use strict';
+        var newWindow;
+
+        function newWin() {
+            // window.open(URL, 새창의 이름, 옵션);
+            // width:새창의 폭, height:새창의 높이, left:새창의 X축좌표, top:새창의 Y축좌표
+            // resizable = yes/no/auto, scrollbars=yes/no/auto, statusbar=yes/no/auto
+            var url = "test12_child.html";
+            winName = "newWindow";
+            var winOpt = "width=500px, height=400px, left=300px, top=200px, resizable=no, scrollbars=no";
+            newWindow = window.open(url, winName, winOpt);
+        }
+
+        // 자식창 닫기
+        function childClose() {
+            // window.close();   // 자기 자신창이 닫힘
+            newWindow.close();
+        }
+    </script>
+    </head>
+    <body>
+    <p><br/></p>
+    <div class="container">
+    <form name="myForm">
+    <div class="form-group">
+        <h2>새창띄우기(부모창)-값넘겨주고 받기</h2>
+    </div>
+    <div class="form-group">
+        <label for="mid">아이디 :</label>
+        <input type="text" name="mid" id="mid" autofocus class="form-control m-1"/>
+    </div>
+    <div class="form-group">
+        <label for="pwd">비밀번호 :</label>
+        <input type="password" name="pwd" id="pwd" class="form-control m-1"/>
+    </div>
+    <div class="form-group">
+        <input type="button" value="아이디중복체크" onclick="newWin()" class="btn btn-primary form-control m-1"/>
+        <input type="reset" value="취 소" class="btn btn-primary form-control m-1"/>
+        <input type="button" value="자식창닫기" onclick="childClose()" class="btn btn-primary form-control m-1"/>
+    </div>
+</form>
+</div>
+</body>
+</html>

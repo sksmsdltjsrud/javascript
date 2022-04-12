@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test6.html</title>\
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        'use strict';
+
+        function foodInput(e) {
+            let foodBoxLen = myForm.foodBox.length;
+            let food = myForm.food.value;
+            
+            if(food == "") {
+                alert("음식명을 입력하세요");
+                myForm.food.focus();
+                return false; // 더이상 프로그램을 진행하지 않겠다 false는 return의 기본값
+            }
+            
+            // 음식을 입력하였다면 입력된 음식을 리스트박스(listBox)에 추가한다.
+            
+            // 1. option 객체를 생성한다.
+            let optText = new Option(food);
+            console.log(food);
+
+            // 2. 생성된 Option객체를 리스트박스에 삽입시켜준다.(이때 삽입위치는 마지막위치(리스트박스의 길이)이다.) 
+            e.foodBox.options[foodBoxLen] = optText;
+        }
+
+        // 항목 삭제하기(선택후 실행할 수 있게 한다.)
+        function foodDelete(e) {
+            let foodBoxLen = myForm.foodBox.length;
+            let sw = 0;
+
+            for(let i=0; i<foodBoxLen; i++) {
+                if(e.foodBox.options[i].selected) {
+                    e.foodBox.options[i] = null;
+                    sw = 1;
+                }
+            }
+            if(sw==0) alert("리스트박스의 아이템을 선택하세요!");
+        }
+
+        // 리스트박스의 음식을 텍스트박스의 내용으로 수정하기
+        function foodUpdate(e) {
+            let foodBoxLen = myForm.foodBox.length;
+            let food = myForm.food.value; // 텍스트박스 
+            
+            if(food == "") {
+                alert("수정할 음식명을 입력하세요");
+                myForm.food.focus();
+                return false;
+            }
+
+            let sw = 0;
+            for(let i=0; i<foodBoxLen; i++) {
+                if(e.foodBox.options[i].selected) {
+                    e.foodBox.options[i].text = food;
+                    sw = 1;
+                }
+            }
+            if(sw==0) alert("리스트박스의 수정할 아이템을 선택하세요!");
+        }
+    </script>
+    </head>
+    <body>
+    <p><br/></p>
+    <div class="container">
+    <form name="myForm">
+        <div class="form-group">
+            <h2>리스트박스</h2>
+        </div>
+        <div class="form-group m-3">
+            <label for="food">좋아하는 음식은?</label>
+            <!-- multiple : 여러 개 선택 가능 -->
+            <select name="foodBox" id="foodBox" size="5" multiple class="form-control m-2"></select>
+            <div class="form-group m-2">
+                <label for="foodInput">좋아하는 음식을 입력하세요?</label>
+                <input type="text" name="food" id="food" autofocus class="form-control"/>
+            </div>
+        <div class="form-group m-3">
+            <input type="button" value="음식추가" onclick="foodInput(this.form)" class="btn btn-success form-control m-1"/> <!-- form-control : 한 줄 차지 -->
+            <input type="button" value="음식삭제" onclick="foodDelete(this.form)" class="btn btn-success form-control m-1"/> <!-- form-control : 한 줄 차지 -->
+            <input type="button" value="음식수정" onclick="foodUpdate(this.form)" class="btn btn-success form-control m-1"/> <!-- form-control : 한 줄 차지 -->
+            <input type="button" value="취소" onclick="location.reload(this.form)" class="btn btn-success form-control m-1"/>
+        </div>
+        <div id="demo"></div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

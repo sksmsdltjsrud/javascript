@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test12.html</title>
+    <script>
+        'use strict';
+        function link() {
+            let address = document.getElementById("address").value;
+
+            if(address =="") {
+                alert("주소를 입력하세요");
+                document.getElementById("address").focus();
+            }
+            else {
+                demo.innerHTML = 
+                "<a href='"+address+"' target='_blank'>"
+                    +address+"</a><input type='button' value='닫기' onclick='link2()'/>";
+            }
+        }
+        function link2() {
+            demo.innerText = "";
+        }
+    </script>
+</head>
+<body>
+    <form name ="myform">
+        <p>
+            문제1. <br/>
+            이동할 주소를 입력 후 이동버튼을 클릭하면 해당 주소가
+            가상(demo)에 출력되어, 그 주소를 클릭하면 새창으로 이동하도록 만드시오
+        </p>
+        <div>이동할 주소 : <input type="text" name="address" id="address" placeholder="이동할 주소를 입력하세요">
+        <input type="button" value="이동" onclick="link()"/></div>
+        
+        <div id="demo"></div>
+    </form>
+</body>
+</html>

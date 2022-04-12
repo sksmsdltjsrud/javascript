@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test4.html</title>
+    <script>
+        'use strict';
+        let fCheck = function() {
+            alert("익명함수로 호출합니다.");
+        }
+        
+        let fCheck2 = () => {
+            alert("Arrow함수로 호출합니다.");
+            console.log("Arrow함수로 호출합니다.");
+        };
+        let fCheck3 = () => alert("Arrow함수2로 호출합니다.");
+    </script>
+</head>
+<body>
+    <!-- 자바에선 람다식 -->
+    <h2>Arrow Function</h2>
+    <p>
+        <input type="button" value="익명함수호출" onclick="fCheck()"/>
+        <input type="button" value="Arrow함수호출" onclick="fCheck2()"/>
+        <input type="button" value="Arrow함수호출2" onclick="fCheck3()"/>
+    </p>
+    <p>
+        <pre>
+            Arrow Function 만들기?
+            let 변수명 = () => {};
+        </pre>
+    </p>
+</body>
+</html>

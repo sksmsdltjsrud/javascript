@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test1.html</title>
+    <script>
+        'use strict';
+        function fCheck() {
+            console.log("함수를 호출하셨습니다.");
+        }
+        function fCheck2(su) {
+            console.log("su : " + su);
+        }
+        function fCheck3(su1, su2) {
+            console.log("su1 : " + su1);
+            console.log("su2 : " + su2);
+            console.log("su1+su2 : " + (su1+su2));
+        }
+        function fCheck4(su1, su2) {
+            console.log("su1 : " + su1);
+            console.log("su2 : " + su2);
+            console.log("su1+su2 : " + (su1+su2));
+            console.log("su1+su2 : " + (parseInt(su1)+su2));
+        }
+        const stringSu = '10';
+        const numberSu = 10;
+
+        function fCheck5() {
+            console.log("stringSu : " + typeof(stringSu));
+            console.log("NumberSu : " + typeof(numberSu));
+            if(stringSu == numberSu) console.log("두 변수값이 같다.");
+            else console.log("두 변수값은 다르다.");
+        }
+        function fCheck6() {
+            if(stringSu === numberSu) console.log("두 변수타입과 값이 같다.");
+            else console.log("두 변수타입과 값은 다르다.");
+        }
+    </script>
+</head>
+<body>
+    <h2>매개변수 연습</h2>
+    <form name="myForm">
+        <p>
+            <button type="button" onclick="fCheck()">함수호출</button>
+            <button type="button" onclick="fCheck2(100)">함수호출2</button>
+            <button type="button" onclick="fCheck3(100, 200)">함수호출3</button>
+            <button type="button" onclick="fCheck4('100', 200)">함수호출4</button>
+            <!-- 동치연산자 : 타입까지 비교 -->
+            <button type="button" onclick="fCheck5()">연산자(==)</button>
+            <button type="button" onclick="fCheck6()">동치연산자(===)</button>
+        </p>
+    </form>
+</body>
+</html>

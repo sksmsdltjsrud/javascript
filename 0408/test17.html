@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test13.html</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        'use strict';
+        function fCheck() {
+            // 1. 정규식을 먼저 만들고
+            // 첫 글자는 영문대문자로 하겠다
+            // let regMid = /^[a-z][a-z0-9_]+$/g; // multi가 필요없어서 m 지워줌
+            let regMid = /^[a-z][a-z0-9_]{3,19}$/g; // 아아디는 영문소문자 또는 숫자 또는 밑줄만 사용가능(첫글자는 영문자)글자수 제한(4~20자)까지 가능
+            let regName = /^[가-힣a-zA-Z]{2,20}$/g; // 성명체크(한글,영문만 가능, 길이는 2~20)
+            let regTel = /\d{2,3}-\d{3,4}-\d{4}$/g; // 전화번호
+            // atom1234@hanmail.net
+            let regEmail = /^[a-zA-Z0-9_+-]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+/g; // 이메일체크
+
+            // 2. 변수 가져옴
+            let mid = document.getElementById("mid").value;
+            let name = document.getElementById("name").value;
+            let tel = document.getElementById("tel").value;
+            let email = document.getElementById("email").value;
+
+            if(!regTel.test(tel)) {
+                alert("전화번호를 확인하세요!")
+                document.getElementById("tel").focus();
+            }
+            else if(!regEmail.test(email)) {
+                alert("이메일 주소를 확인하세요!")
+                // document.getElementById("email").value=''; //지워짐
+                document.getElementById("email").select(); // 지우지않고 선택이 됨
+                document.getElementById("email").focus();
+            }
+            else {
+                if(regMid.test(mid)) {
+                    if(regName.test(name)) {
+                    alert("성공");   // 정상자료는 서버로 전송한다.
+                }
+                else {
+                    alert("이름은 한글과 영문만 가능(2~20글자까지 사용가능합니다.)");
+                    document.getElementById("name").focus();
+                }
+            }
+            else {
+                alert("아이디는 영문소문자와 숫자와 밑줄만 가능합니다.(첫글자는 영문자로)")
+                document.getElementById("mid").focus();
+                }
+            }
+            // alert("작업끝");
+
+        }
+    </script>
+    <style>
+        .f1 {
+            width: 100px;
+        }
+    </style>
+    </head>
+    <body>
+    <p><br/></p>
+    <div class="container">
+        <h2>정규표현식을 활용한 Form 체크하기</h2>
+        <form name="myForm">
+            <div>
+                <label for="mid" class="f1">아이디</label>
+                <input type="text" name="mid" id="mid"value="abc1234" autofocus/>
+            </div>
+            <div>
+                <label for="name" class="f1">성명</label>
+                <input type="text" name="name" id="name" value="이선경"/>
+            </div>
+            <div>
+                <label for="tel" class="f1">전화번호</label>
+                <input type="text" name="tel" id="tel"value="02-1234-5678" />
+            </div>
+            <div>
+                <label for="email" class="f1">이메일</label>
+                <input type="text" name="email" id="email" />
+            </div>
+            <div>
+                <input type="button" value="폼체크" onclick="fCheck()" />
+                <input type="reset" value="다시입력" />
+            </div>
+        </form>
+    <br/>
+    <!-- <div id="demo"></div> -->
+</div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test14.html</title>
+    <script>
+        'use strict';
+
+        function newWin() {
+            let url = "test14_child.html";
+            let winName = "newWindow";
+            // let winOpt = "";
+            let winX = 400;
+            let winY = 300;
+            let x = (window.screen.width/2) - (winX/2);
+            let y = (window.screen.height/2) - (winY/2);
+            window.open(url, winName, "width="+winX+",height="+winY+",left="+x+",top="+y);
+        }
+    </script>
+</head>
+<body>
+    <h2>화면 중앙에 자식창 띄우기</h2>
+    <p>
+        <input type="button" value="중앙에띄우기" onclick="newWin()" />
+    </p>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test2.html</title>
+    <script>
+        'use strict';
+        let cnt=0;
+
+        function fCheck1() {
+            cnt++;
+            console.log("일반함수입니다.(cnt="+cnt+")");
+        }
+        
+        // 익명함수(함수명이 없는 함수) - 변수가 있어야함
+        let fCheck2 = function() {
+            cnt++;
+            console.log("익명함수입니다.(cnt="+cnt+")");
+        }
+
+        fCheck1();
+        fCheck2();
+    </script>
+</head>
+<body>
+    <h2>익명함수(Anonymous Function)</h2>
+    <p>
+        <input type="button" value="일반함수" onclick="fCheck1()"/>
+        <input type="button" value="익명함수" onclick="fCheck2()"/>
+    </p>
+</body>
+</html>

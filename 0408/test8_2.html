@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반복문연습(test8_2.html)</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    'use strict';
+    function gugudan() {
+        let startDan = parseInt(document.getElementById("startDan").value);
+        let endDan = parseInt(document.getElementById("endDan").value);
+        let res, temp, cnt=0;
+        if(startDan > endDan) {
+            temp = startDan;
+            startDan = endDan;
+            endDan = temp;
+        }
+
+        document.write("구구단("+startDan+","+endDan+")<hr/>");
+        document.write("<table border><tr>");
+        for(let i=startDan; i<=endDan; i++) {
+            if((cnt % 3) != 0) {
+            document.write("<td>");
+            } 
+            else {
+            document.write("</tr><tr><td>");
+            }
+            document.write("<b>* "+i+"단 *</b><br/>");
+            for(let j=1; j<=10; j++) {
+            res = i * j;
+            document.write(i + " * " + j + " = " + res + "<br/>");
+            }
+            document.write("</td>");
+            cnt++;
+        }
+        document.write("</tr></table><br/><br/>");
+        document.write("<input type='button' value='다시실행' onclick='location.reload();'/>");
+        }
+    </script>
+    </head>
+    <body>
+    <div class="container">
+    <p><br/></p>
+    <h2 class="text-center">반복문연습</h2>
+    <br/>
+    <form>
+        <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8 bg-warning text-light text-center p-4"><b>출력할 구구단을 을 입력하세요?</b></div>
+        <div class="col-2"></div>
+        </div>
+        <div class="row text-light">
+        <div class="col-2 bg-light"></div>
+        <div class="col-4 bg-success p-4 border-bottom text-center">시작단</div>
+        <div class="col-4 bg-success p-4 border-bottom"><input type="number" name="startDan" id="startDan" value="2" min="1" max="99"/></div>
+        <div class="col-2 bg-light"></div>
+        </div>
+        <div class="row text-light">
+        <div class="col-2 bg-light"></div>
+        <div class="col-4 bg-success p-4 text-center">끝단</div>
+        <div class="col-4 bg-success p-4"><input type="number" name="endDan" id="endDan" value="2" min="1" max="99"/></div>
+        <div class="col-2 bg-light"></div>
+        </div>
+        <div class="row bg-info text-center">
+        <div class="col-2 bg-light"></div>
+        <div class="col-8 text-center">
+            <input type="button" value="출력" onclick="gugudan()" class="btn btn-danger text-light m-4"/>
+        </div>
+        <div class="col-2 bg-light"></div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test9.html</title>
+    <script>
+        'use strict';
+        function fCheck() {
+            // window.docume -> window 생략
+            //let mid = document.myForm.mid.value;
+            //let pwd = document.myForm.pwd.value;
+            let mid = document.getElementById("mid").value;
+            let pwd = document.getElementById("pwd").value;
+
+            if(mid == "") {
+                alert("아이디를 입력하세요");
+                //document.myForm.mid.focus();
+                document.getElementById("mid").focus();
+            }
+            else if(pwd == "") {
+                alert("비밀번호를 입력하세요");
+                //document.myForm.pwd.focus();
+                ocument.getElementById("pwd").focus();
+            }
+            else {
+                alert("아이디는?  " + mid + "\n비밀번호는? " + pwd);
+                console.log("아이디는?  " + mid + "\n비밀번호는? " + pwd);
+                //demo.innerText = "아이디는?  " + mid + "<br/>비밀번호는? " + pwd; = innerText로 해서 <br/>도 text로
+                demo.innerHTML = "아이디는? <font color='red'> " + mid + "</font><br/>비밀번호는? " + pwd;
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <!-- method="get" get이 기본값 -->
+    <!-- <form method="get" action="ddd.html"> 주소 : 값 다 나옴-->
+    <!-- post : 주소가 깔끔함(ddd.html만 나옴) -->
+    <!-- <form name="myForm" method="post" action="#"> -->
+    <form>
+        <p>아이디 : <input type="text" name="mid" id="mid"/></p>
+        <p>비밀번호 : <input type="password" name="pwd" id="pwd" size="3" maxlength="6"/></p>
+        <p>
+            <input type="submit" value="전송" />
+            <input type="reset" value="취소" />
+            <input type="button" value="확인" onclick="fCheck()"/>
+        </p>
+        <div id="demo"></div>
+    </form>
+</body>
+</html>

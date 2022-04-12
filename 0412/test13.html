@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test13.html</title>
+</head>
+<body>
+    <h2>모니터의 해상도 알아오기</h2>
+    <p>window.screen객체</p>
+    <div id="demo"></div>
+    <script>
+        'use strict';
+        let temp ="";
+        temp += "<p>해상도 가로크기 : " + window.screen.width + "</p>";
+        temp += "<p>해상도 세로크기 : " + window.screen.height + "</p>";
+        temp += "<p>사용자 작업영역 가로크기 : "+screen.availWidth+"</p>";
+        temp += "<p>사용자 작업영역 세로크기 : "+screen.availHeight+"</p>";
+        temp += "<p>표현가능 색상수 : "+Math.pow(2, screen.colorDepth)+"</p>";
+        temp += "<p>픽셀당 색상수 : "+Math.pow(2, screen.pixelDepth)+"</p>";
+        document.getElementById("demo").innerHTML = temp;
+    </script>
+</body>
+</html>

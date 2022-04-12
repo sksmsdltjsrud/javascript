@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>test9.html</title>
+<script>
+    'use strict';
+    function fCheck() {
+        let mid = document.myForm.mid.value;
+        let pwd = document.myForm.pwd.value;
+
+        if(mid == "") {
+            alert("아이디를 입력하세요.");
+            document.myForm.mid.focus();
+        }
+        else if(pwd == "") {
+            alert("비밀번호를 입력하세요.");
+            document.myForm.pwd.focus();
+        }
+        else {
+            alert("아이디는? " + mid + "\n비밀번호는 ?" + pwd);
+        }
+
+    }
+    </script>
+</head>
+<body>
+    <!-- <form method="get" action="ddd.html"> -->
+    <form name="myForm" method="post" action="#">
+        <p>아이디 : <input type="text" name="mid" /></p>
+        <p>비밀번호 : <input type="password" name="pwd" size="3" maxlength="6"/></p>
+        <p>
+            <input type="submit" value="전송" />
+            <input type="reset" value="취소" />
+            <input type="button" value="확인" onclick="fCheck()"/>
+        </p>
+    </form>
+</body>
+</html>

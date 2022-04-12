@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반복문연습</title>
+    <script>
+        'use strict';
+        function gugudan() {
+            let dan = document.getElementById("dan").value;
+            let res;
+
+            document.write("* "+dan+"단 *<br/>");
+            for(let i=1; i<=10; i++) {
+                res = dan * i;
+                document.write(dan + " * " + i + " = " + res + "<br/>");
+        }
+        document.write("<input type='button' value='다시실행' onclick='location.reload();'/>")
+        // location.reload(); -> 새로고침 명령
+    }
+    </script>
+</head>
+<body>
+    <h2>반복문연습</h2>
+    <form>
+        <p>
+            출력할 구구단을 입력하세요?
+            <input type="number" name="dan" id="dan" value="2" min="1" max="99" />
+            <input type="button" value="출력" onclick="gugudan()" />
+        </p>
+        <!-- <div id="demo"></div> -->
+    </form>
+</body>
+</html>

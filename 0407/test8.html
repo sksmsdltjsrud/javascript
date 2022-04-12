@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test8.html</title>
+    <script>
+        'use strict';
+        function fCheck() {
+            // window.docume -> window 생략
+            let irum = document.myForm.irum.value;
+            let nai1 = document.myForm.nai1.value;
+            alert("이름은?  " + irum + "\n나이1은? " + nai1);
+        }
+    </script>
+</head>
+<body>
+    <!-- method="get" get이 기본값 -->
+    <!-- <form method="get" action="ddd.html"> 주소 : 값 다 나옴-->
+    <!-- post : 주소가 깔끔함(ddd.html만 나옴) -->
+    <form name="myForm" method="post" action="#">
+        <p>성명 : <input type="text" name="irum" value="홍길동"/></p>
+        <p>나이1 : <input type="number" name="nai1" size="3" min ="1" max="99"/></p>
+        <p>나이2 : <input type="text" name="nai2" size="3" maxlength="2"/></p>
+        <p>
+            <input type="submit" value="전송" />
+            <input type="reset" value="취소" />
+            <input type="button" value="확인" onclick="fCheck()"/>
+        </p>
+    </form>
+</body>
+</html>

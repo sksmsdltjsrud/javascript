@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test16.html</title>
+    <script>
+        function keboardEvent(evt) {
+            str = "<p>발생된 이벤트 : " + evt.type + "</p>"
+            str += "키값 : " + evt.which;
+
+            document.getElementById("demo").innerHTML = str;
+        }
+
+        document.onkeypress = KeyboardEvent;
+    </script>
+</head>
+<body>
+    <h2>키보드 키값 확인</h2>
+    <p>키보드를 누르면 키값이 표시됩니다.</p>
+    <p><input type="button" value="새로고침" onclick="location.reload"/></p>
+    <div id="demo2"></div>
+</body>
+</html>

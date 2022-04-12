@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test15.html</title>
+    <script>
+        'use strict';
+        function fCheck() {
+            let hobby ="";
+            //console.log("~~~~~~");
+            for(var i=0; i<document.getElementsByName("hobby").length; i++) {
+                //console.log(document.getElementsByName("hobby")[i].checked);
+                if(document.getElementsByName("hobby")[i].checked) {
+                    hobby += document.getElementsByName("hobby")[i].value + "/";
+                }
+            }
+            demo.innerHTML = hobby + " <input type='button' value='지우기' onclick='fClear()'/>";
+        }
+
+        // 체크박스 Clear시키기
+        function fClear() {
+            for(var i=0; i<document.getElementsByName("hobby").length; i++) {
+                document.getElementsByName("hobby")[i].checked = false;
+            }
+            demo.innerText="";
+        }
+    </script>
+</head>
+<body>
+    <h2>체크박스 연습하기</h2>
+    <form>
+        <p> 취미 :
+            <input type="checkbox" name="hobby" id="hobby1" value="등산"/>등산 &nbsp;
+            <input type="checkbox" name="hobby" id="hobby2" value="낚시"/>낚시 &nbsp;
+            <input type="checkbox" name="hobby" id="hobby3" value="볼링"/>볼링 &nbsp;
+            <input type="checkbox" name="hobby" id="hobby4" value="수영"/>수영 &nbsp;
+            <input type="checkbox" name="hobby" id="hobby5" value="탁구"/>탁구 &nbsp;
+            <input type="button" value="출력" onclick="fCheck()" />
+        </p>
+        <div id ="demo"></div>
+    </form>
+</body>
+</html>

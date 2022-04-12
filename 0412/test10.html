@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test10.html</title>
+    <script>
+        function fCheck() {
+            alert("안녕하세요... 환영합니다.");
+        }
+
+        function fCheckOut() {
+            alert("다음에 또 만나요~~");
+        }
+    </script>
+</head>
+<body onload="fCheck()" onunload="fCheckOut()"> <!-- 브라우저 처음에 해당 사이트에 실행 시키는 것 -->
+    <h2>onLoad(시작할때수행)/onUnLoad(끝날때수행) 이벤트</h2> <!-- onUnLoad는 브라우저가 다 죽여놈 -->
+    <input type="button" value="호출1" onclick="fCheck()" />
+    <input type="button" value="호출2" onclick="fCheckOut()" />
+</body>
+</html>

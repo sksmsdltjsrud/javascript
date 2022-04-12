@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test3.html</title>
+    <script>
+        'use strict';
+
+        function fCheckYes(answer) {
+            if(answer.toUpperCase() == "Y") {
+                ansYes();
+            }
+            else {
+                ansNo();
+            }
+        }
+        
+        // 익명함수
+        let ansYes = function() {
+            alert("계속진행합니다.");
+        }
+        let ansNo = function() {
+            alert("작업을 마칩니다.");
+        }
+    </script>
+</head>
+<body>
+    <h2>익명함수연습2</h2>
+    <p>
+        <input type="button" value="계속"  onclick="fCheckYes('Y')"/>
+        <input type="button" value="그만"  onclick="fCheckYes('N')"/>
+    </p>
+</body>
+</html>

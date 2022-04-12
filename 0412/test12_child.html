@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test12_child.html(자식창)</title>
+    <script>
+        document.childForm.mid.value = opener.window.document.myForm.mid.value;
+
+        // 창닫기(현재 자식창의 아이디를 부모창으로 보내고, 커서는 비밀번호창으로 보낸다.)
+        function winClose() {
+            opener.window.document.myForm.mid.value = document.childForm.mid.value;
+            // opener.window.document.myForm.pwd.focus();
+            opener.document.getElementById("pwd").focus();
+            window.close();
+        }
+
+        // 부모창의 mid를 자식창의 mid로 가져오기
+        function receiveMid() {
+            document.childForm.mid.value = opener.window.document.myForm.mid.value;
+        }
+
+        // 자식창의 mid를 부모창의 mid로 가져오기
+        function sendMid() {
+            opener.window.document.myForm.mid.value = document.childForm.mid.value;
+        }
+    </script>
+    </head>
+    <body>
+    <p><br/></p>
+    <div class="container">
+    <form name="childForm">
+    <h2>새창(자식창)</h2>
+    <div>
+        <input type="text" name="mid" id="mid" autofocus />
+    </div>
+    <div>
+        <input type="button" value="아이디가져오기" onclick="receiveMid()"/>
+        <input type="button" value="아이디넘겨주기" onclick="sendMid()"/>
+        <input type="button" value="창닫기" onclick="winClose()"/>
+    </div>
+</form>
+</div>
+</body>
+</html>

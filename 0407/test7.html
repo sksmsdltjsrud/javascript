@@ -7,7 +7,8 @@
     <title>test7.html</title>
     <script>
         // mutable : 값에 따라 타입이 달라진다
-        var atom = 100;
+        // var atom = 100;
+        let atom = 100;
         console.log("atom : " + atom);
         console.log("atom(type) : " + typeof(atom));
         
@@ -33,7 +34,7 @@
             }
         }
         function msg4() {
-            var su = prompt("수를 입력하세요?");
+            var su = prompt("수를 입력하세요?"); // prompt는 문자로 봐야된다
             alert("입력한 수는? " + su);
         }
         function msg5(age) {
@@ -44,7 +45,7 @@
     </script>
 </head>
 <body>
-    <h2>mutable / immutable</h2>
+    <h2>mutable(var,let) / immutable(const)</h2>
     <p>mutable Data Type : 변수가 값에 따라 변경된다.</p>
     <p>immutable : 한번 선언한 변수는 타입(값)변경불가.</p>
     --------에러 잡기 위한 방법2
@@ -53,6 +54,7 @@
     <p><input type="button" value="메세지3" onclick="msg3()"/></p> 
     <p><input type="button" value="메세지4" onclick="msg4()"/></p> 
     <p><input type="button" value="메세지5" onclick="msg5(20)"/></p> 
+    <p><input type="button" value="메세지6" onclick="javascript:alert('안녕하세요.');"/></p>
 
 </body>
 </html>

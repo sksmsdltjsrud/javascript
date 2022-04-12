@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test11.html(부모창)</title>
+    <script>
+        'use strict';
+        var newWindow;
+
+        function newWin() {
+            // window.open(URL, 새창의 이름, 옵션);
+            // width:새창의 폭, height: 새창의 높이, left: 새창의 X축좌표, top: 새창의 Y축좌표
+            // resizable=yes/no/auto (auto가 기본임, 사이즈 조절가능) , scrollbars=yes/no/auto, statusbar=yes/no/auto
+            var url = "test11_child.html" 
+            var winName = "newWindow";
+            var winOpt = "width=500px, height=400px, left=300px, top=200px, resizable=no, scrollbars=no";
+            newWindow = window.open(url, winName, winOpt);
+        }
+
+        // 자식창 닫기
+        function childClose() {
+            // window.close(); // 자기 자신창이 닫힘
+            newWindow.close();
+        }
+    </script>
+</head>
+<body>
+<p><br/></p>
+<div class="container">
+    <h2>새창띄우기(부모창)</h2>
+    <div>
+        <input type="button" value="새창" onclick="newWin()" />
+    </div>
+    <div>
+        <input type="button" value="자식창닫기" onclick="childClose()" />
+    </div>
+</div>
+</body>
+</html>

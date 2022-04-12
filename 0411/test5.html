@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test5.html</title>
+    <script>
+        'use strict';
+        let newText = ""; // 처음에만 공백을 준다
+        let idx = 0;
+
+        // pummok1,2,3 이걸 원함(idx)
+        function inputBox() {
+            // let newText = "";
+            idx++;
+            // newText += "<input type='text' name='pummok' id='pummok' /> &nbsp";
+            newText +="<div id='txt"+idx+"'>";
+            newText += idx + ".<input type='text' name='pummok' id='pummok"+idx+"' /> &nbsp";
+            newText += "<input type='button' value='"+idx+".삭제' onclick='deleteBox("+idx+")' /><br/>";
+            newText += "</div>";
+            document.getElementById("demo").innerHTML = newText;
+        }
+        function deleteBox(idx) {
+            // alert("idx : " + idx)
+            let txt = 'txt' + idx;
+            let element = document.getElementById(txt); // 절대 "" 치면 안됨
+            element.parentNode.removeChild(element);
+        }
+    </script>
+</head>
+<body>
+    <h2>입력창 추가예제(동적폼)</h2>
+    <form name="myForm">
+        <p>
+            <input type="button" value="입력창추가" onclick="inputBox()"/>
+            <input type="button" value="입력창모두제거" onclick="location.reload()"/>
+        </p>
+        <div id="demo"></div>
+    </form>
+</body>
+</html>
